@@ -1,0 +1,87 @@
+<po-page-list
+  #poPageList
+  p-title="Hiring processes"
+  [p-breadcrumb]="breadcrumb"
+  [p-disclaimer-group]="disclaimerGroup"
+  [p-filter]="filterSettings"
+>
+  <po-table
+    [p-selectable]="true"
+    [p-single-select]="true"
+    [p-sort]="true"
+    [p-striped]="true"
+    [p-columns]="hiringProcessesColumns"
+    [p-items]="hiringProcessesFiltered"
+  >
+  </po-table>
+  <app-order-monitor-filter
+    #advancedFilterModal
+    [receiveFilter]="appliedFilter"
+    (applyFilter)="applyAdvancedFilter($event)"
+  ></app-order-monitor-filter>
+</po-page-list>
+
+<!--
+<po-modal
+  #advancedFilterModal
+  p-title="Advanced filter"
+  [p-primary-action]="advancedFilterPrimaryAction"
+>
+  <form #f="ngForm">
+    <div class="po-row">
+      <po-lookup
+        class="po-md-12"
+        id="lookup"
+        name="lookup"
+        [(ngModel)]="filters.programCode"
+        p-field-label="label"
+        p-field-value="value"
+        p-filter-service="https://po-sample-api.fly.dev/v1/heroes"
+        p-label="PO Lookup"
+      >
+      </po-lookup>
+    </div>
+    <div class="po-row>">
+      <po-checkbox-group
+        class="po-md-12"
+        name="status"
+        [ngModel]="status"
+        p-label="Status"
+        [p-options]="statusOptions"
+      >        
+      </po-checkbox-group>
+    </div>
+
+    <div class="po-row">
+      <div class="po-md-12 po-field-title">Situação</div>
+      <po-accordion class="po-md-12">
+        <po-accordion-item class="po-md-12" p-label="waiting">
+          <po-checkbox-group
+            name="reason"
+            [p-options]="this.optionsWaiting"
+            [ngModel]="filters.situationReason"
+            (ngModelChange)="filters.situationReason = $event"
+          ></po-checkbox-group>
+        </po-accordion-item>
+
+        <po-accordion-item class="po-md-12" p-label="executing">
+          <po-checkbox-group
+            name="reason"
+            [p-options]="this.optionsExecuting"
+            [ngModel]="filters.situationReason"
+            (ngModelChange)="filters.situationReason = $event"
+          ></po-checkbox-group>
+        </po-accordion-item>
+
+        <po-accordion-item class="po-md-12" p-label="executed">
+          <po-checkbox-group
+            name="reason"
+            [p-options]="this.optionsExecuted"
+            [ngModel]="filters.situationReason"
+            (ngModelChange)="filters.situationReason = $event"
+          ></po-checkbox-group>
+        </po-accordion-item>
+      </po-accordion>
+    </div>
+  </form>
+-->
